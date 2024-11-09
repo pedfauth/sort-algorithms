@@ -1,26 +1,14 @@
 public class BubbleSort {
-    public static void main(String[] args) {
-        int[] list = {3, 7, 13, 21, 32, 19, 44, 27, 17};
-        bubbleSort(list, list.length);
-        System.out.println(list);
-    }
-
-    private static void swap(int[] list, int indexA, int indexB){
-        int temp = list[indexA];
-        list[indexA] = list[indexB];
-        list[indexB] = temp;        
-    }
-    public static int[] bubbleSort(int[] list, int length){
-        if(length == 1) {
-            return list;
-        };
-        for (int i = 0; i > length; i++){
-            if(list[i] > list[i+1]){
-                swap(list, list[i], list[i+1]);
+    public static void sort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n-1; i++) {
+            for (int j = 0; j < (n - i - 1); j++) {
+                if (arr[j] > arr[j+1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
             }
         }
-        bubbleSort(list, length - 1);
-
-        return list;
     }
 }
