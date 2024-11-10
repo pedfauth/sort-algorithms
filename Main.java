@@ -1,8 +1,5 @@
 import java.util.Arrays;
 import java.util.Scanner;
-import java.nio.file.*;
-import java.io.IOException;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,7 +9,7 @@ public class Main {
         System.out.println("Digite o caminho do arquivo CSV:");
         String filePath = scanner.nextLine();
         try {
-            int[] array = readCSV(filePath);
+            int[] array = LeitorCsv.readCSV(filePath);
             System.out.println("Caminho do arquivo: " + filePath);
 
             System.out.println("Array antes da ordenação:");
@@ -66,10 +63,5 @@ public class Main {
         } finally {
             scanner.close();
         }
-    }
-
-    public static int[] readCSV(String filePath) throws IOException {
-        List<String> lines = Files.readAllLines(Paths.get(filePath));
-        return lines.stream().mapToInt(Integer::parseInt).toArray();
     }
 }
